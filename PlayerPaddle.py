@@ -1,7 +1,7 @@
 import sys, pygame, math
 from Ball import Ball
 
-class PlayerPaddle(Ball):
+class PlayerPaddle():
     def __init__(self, image, maxSpeed, pos = [0,0]):
         Ball.__init__(self, image, [0,0], pos)
         
