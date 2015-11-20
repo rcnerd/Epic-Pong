@@ -80,7 +80,7 @@ class Ball():
                     return True
         return False
         
-        def distanceTo(self, pt):
+    def distanceTo(self, pt):
         x1 = self.rect.center[0]
         y1 = self.rect.center[1]
         x2 = pt[0]
