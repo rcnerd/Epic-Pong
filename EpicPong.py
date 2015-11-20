@@ -1,6 +1,6 @@
 import sys, pygame, math
-from PlayerPaddle import*
-fromBall import*
+from PlayerPaddle import *
+from Ball import *
 pygame.init()
 
 clock = pygame.time.Clock()
