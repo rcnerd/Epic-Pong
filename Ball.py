@@ -3,15 +3,15 @@ from Ball import *
 pygame.init()
 
 class Ball():
-    def __init__(self, images, speed, pos=[0,0]):
+    def __init__(self, image, speed, pos=[0,0]):
         self.speedx = speed[0]
         self.speedy = speed[1]
         self.speed = [self.speedx, self.speedy]
         
-        self.images = []
-        for image in images:
-            self.images += [pygame.image.load(image)]
-        self.image = self.images[0]
+        #self.images = []
+        #for image in images:
+            #self.images += [pygame.image.load(image)]
+        #self.image = self.images[0]
         self.rect = self.image.get_rect()
         self.radius = self.rect.width
 
@@ -33,16 +33,16 @@ class Ball():
         self.didBounceX = False
         self.didBounceY = False
         
-        def update(self, size):
+    def update(self, size):
         self.move()
         self.animate()
         self.collideScreen(size)
         
-        def collideScreen(self, size):
+    def collideScreen(self, size):
         width = size[0]
         height = size[1]
         
-            def collideBall(self, other):
+    def collideBall(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                 if self.radius + other.radius > self.distanceTo(other.rect.center):
@@ -61,7 +61,7 @@ class Ball():
                     return True
         return False
         
-        def collidePaddle(self, other):
+    def collidePaddle(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                 if self.radius + other.radius > self.distanceTo(other.rect.center):
