@@ -1,4 +1,4 @@
-import sys, pygame, math, image
+import sys, pygame, math
 from Ball import *
 pygame.init()
 
