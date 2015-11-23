@@ -12,7 +12,7 @@ class Ball():
         
         self.images = []
         for image in images:
-        self.image = pygame.image.load(image)
+            self.images += [pygame.image.load(image)]
         self.image = self.images[0]
         self.rect = self.image.get_rect()
         self.radius = self.rect.width/2 - 2

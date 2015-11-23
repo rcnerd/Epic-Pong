@@ -1,5 +1,4 @@
 import sys, pygame, math
-<<<<<<< Updated upstream
 from PlayerPaddle import *
 from Ball import *
 pygame.init()
@@ -14,7 +13,7 @@ bgColor = r,b,g = 120,0,56
 
 screen = pygame.display.set_mode(size)
 
-player1 = PlayerPaddle( [width/2, height/2], "pRainbow.png")
+player1 = PlayerPaddle( [width/2, height/2], ["pRainbow.png"])
 #player2 = PlayerPaddle( [width/2, height/2], "pRainbow.png")
 
 
