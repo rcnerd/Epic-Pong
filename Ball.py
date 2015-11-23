@@ -2,6 +2,8 @@ import sys, pygame, math
 from Ball import *
 pygame.init()
 
+Ball = Ball("BlackBall.png", [6, 2])
+
 class Ball():
     def __init__(self, image, speed, pos=[0,0]):
         self.speedx = speed[0]
