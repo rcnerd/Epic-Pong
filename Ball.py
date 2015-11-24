@@ -2,10 +2,10 @@ import sys, pygame, math
 from Ball import *
 pygame.init()
 
-Ball = Ball("BlackBall.png", [6, 2])
+
 
 class Ball():
-    def __init__(self, image, speed, pos=[0,0]):
+    def __init__(self, images, speed, pos=[0,0]):
         self.speedx = speed[0]
         self.speedy = speed[1]
         self.speed = [self.speedx, self.speedy]
@@ -16,6 +16,7 @@ class Ball():
         self.image = self.images[0]
         self.rect = self.image.get_rect()
         self.radius = self.rect.width/2 - 2
+    
 
     def move(self):
         self.speed = [self.speedx, self.speedy]
