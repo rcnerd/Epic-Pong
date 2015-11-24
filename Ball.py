@@ -38,7 +38,7 @@ class Ball():
         
     def update(self, size):
         self.move()
-        self.animate()
+        #self.animate()
         self.collideScreen(size)
         
     def collideScreen(self, size):
