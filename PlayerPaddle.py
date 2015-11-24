@@ -22,3 +22,13 @@ class PlayerPaddle(Ball):
             self.speedy = 0
         elif direction == "stop down":
             self.speedy = 0
+            
+        if direction == "w":
+            self.speedy = -self.maxSpeedy
+        elif direction == "s":
+            self.speedy = self.maxSpeedy
+        
+        if direction == "stop w":
+            self.speedy = 0
+        elif direction == "stop s":
+            self.speedy = 0
