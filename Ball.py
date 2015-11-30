@@ -30,20 +30,17 @@ class Ball():
         
         self.frame = 0
         self.maxFrame = len(self.images)-1
-        self.timer = 0
-        self.timerMax = .05* 60
+        #self.timer = 0
+        #self.timerMax = .05* 60
         
-        self.didBounceX = False
-        self.didBounceY = False
+        self.didBounceX = True
+        self.didBounceY = True
+        
         
     def update(self, size):
         self.move()
         #self.animate()
         self.collideScreen(size)
-        
-    def collideScreen(self, size):
-        width = size[0]
-        height = size[1]
         
     def collideBall(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:

@@ -1,4 +1,4 @@
-import sys, pygame, math
+import sys, pygame, math, random
 from PlayerPaddle import *
 from Ball import *
 pygame.init()
@@ -13,14 +13,14 @@ bgColor = r,b,g = 120,0,56
 
 screen = pygame.display.set_mode(size)
 
-player = PlayerPaddle( ["pRainbow.png"], [30,30], [width/2, height/2])
+player = PlayerPaddle( ["pRainbow.png"], [90,90], [width/2, height/2])
 player2 = PlayerPaddle( ["player2.png"], [60,60], [width/2, height/2])
 
 ball = Ball(["BlackBall.png"], [6,6], [300,400])
 
 balls = []
 ballSpawnTimer = 0
-ballSpawnTimerMax = 1* 60
+ballSpawnTimerMax = .1 * 60
 
 
 while True:
@@ -33,33 +33,38 @@ while True:
                 player.go("up")
             elif event.key == pygame.K_DOWN:
                 player.go("down")
-                
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_W:
-                player2.go("w")
-            elif event.key == pygame.K_S:
-                player2.go("s")
+
+            elif event.key == pygame.K_w:
+                player2.go("up")
+            elif event.key == pygame.K_s:
+                player2.go("down")
            
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_UP:
                 player.go("stop up")
             elif event.key == pygame.K_DOWN:
                 player.go("stop down")
-                
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_W:
-                player2.go("stop w")
-            elif event.key == pygame.K_S:
-                player2.go("stop s")
+            
+            elif event.key == pygame.K_w:
+                player2.go("stop up")
+            elif event.key == pygame.K_s:
+                player2.go("stop down")
         
+        ballSpawnTimer += 1
+    if ballSpawnTimer >= ballSpawnTimerMax:
+        ballSpawnTimer = 0
+        ballSpeed = [random.randint(-5, 5),
+                     random.randint(-5, 5)]
+        ballPos = [random.randint(100, width-100),
+                     random.randint(100, height-100)]
         
-        player.update(size)
-        player2.update(size)
+    player.update(size)
+    player2.update(size)
         
-        for ball in balls:
-            ball.update(size)
+    for ball in balls:
+        ball.update(size)
         
-        bgColor = r,b,g
+    bgColor = r,b,g
     screen.fill(bgColor)
     for ball in balls:
         screen.blit(ball.image, ball.rect)
@@ -68,3 +73,4 @@ while True:
 
     pygame.display.flip()
     clock.tick(60)
+    #print clock.get_fps()
