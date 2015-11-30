@@ -28,16 +28,19 @@ class Ball():
         width = size[0]
         height = size[1]
         
-        self.frame = 0
-        self.maxFrame = len(self.images)-1
+        #self.frame = 0
+        #self.maxFrame = len(self.images)-1
         #self.timer = 0
         #self.timerMax = .05* 60
         
-        self.didBounceX = True
-        self.didBounceY = True
+        if self.rect.top > height or self.rect.bottom < height:
+            if not self.didBounceX:
+                self.speedx = 0
         
-        if self.didBounceX:
-            speed == 0
+                self.didBounceX = True
+        
+        return True
+        
         
         
     def update(self, size):
