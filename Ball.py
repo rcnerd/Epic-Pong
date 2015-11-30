@@ -36,6 +36,9 @@ class Ball():
         self.didBounceX = True
         self.didBounceY = True
         
+        if self.didBounceX:
+            speed == 0
+        
         
     def update(self, size):
         self.move()
