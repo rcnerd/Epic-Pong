@@ -7,10 +7,20 @@ class PlayerPaddle(Ball):
         
         self.maxSpeedx = maxSpeed[0]
         self.maxSpeedy = maxSpeed[1]
+        
+        self.didBounceX = False
+        self.didBounceY = False
 
     def collideScreen(self, size):
         width = size[0]
         height = size[1]
+        
+        if not self.didBounceY:
+            if self.rect.top < 0 or self.rect.bottom > height:
+                self.speedy = -self.speedy
+                selfdidBounceY = True
+                self.move()
+                self.speedy = 0
         
     def go(self, direction):
         if direction == "up":
