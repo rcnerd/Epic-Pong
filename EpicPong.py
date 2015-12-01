@@ -14,7 +14,7 @@ bgColor = r,b,g = 120,0,56
 screen = pygame.display.set_mode(size)
 
 player = PlayerPaddle( ["pRainbow.png"], [10,10], [850, 600])
-player2 = PlayerPaddle( ["player2.png"], [10,10], [0,0])
+player2 = PlayerPaddle( ["player2.png"], [10,10], [0, 0])
 
 ball = Ball(["BlackBall.png"], [6,6], [300,400])
 
