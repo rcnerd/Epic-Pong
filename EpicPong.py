@@ -52,15 +52,16 @@ while True:
     ballTimer += 1
     if ballTimer >= ballTimerMax:
         ballTimer = 0
-        #ballSpeed = random.randint(-5, 5)
-        #ballPos = random.randint(100, width-100)
-        balls += [Ball(["BlackBall.png",
-                        "BlackBall1.png",
-                        "BlackBall2.png",
-                        "BlackBall3.png"],
-                       [5,5],
-                       [425, 350])]
-        #print len(balls), clock.get_fps()
+        if len(balls) < 2:
+            #ballSpeed = random.randint(-5, 5)
+            #ballPos = random.randint(100, width-100)
+            balls += [Ball(["BlackBall.png",
+                            "BlackBall1.png",
+                            "BlackBall2.png",
+                            "BlackBall3.png"],
+                           [5,5],
+                           [425, 350])]
+            #print len(balls), clock.get_fps()
         
     player.update(size)
     player2.update(size)
@@ -70,10 +71,18 @@ while True:
         
     for first in balls:
         player.collideBall(first)
+        if first.collideBall(player):
+            first.die()
         else:
             for second in balls:
                 if first != second:
                     first.collideBall(second)
+                elif second != first:
+                    second.collideBall(first)
+    
+    for ball in balls:
+        if not ball.living:
+            balls.remove(ball)
         
     bgColor = r,b,g
     screen.fill(bgColor)
