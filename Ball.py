@@ -24,6 +24,11 @@ class Ball():
         self.didBounceY = False
 
         self.rect = self.rect.move(pos)
+        
+        self.living = True
+        
+    def die(self):
+        self.living = False    
 
     def move(self):
         self.speed = [self.speedx, self.speedy]
@@ -34,10 +39,6 @@ class Ball():
     def collideScreen(self, size):
         width = size[0]
         height = size[1]
-        
-        if self.rect.top > height or self.rect.bottom < height:
-            if not self.didBounceX:
-                self.speedx = 0
                 
         if not self.didBounceX:
             if self.rect.left < 0 or self.rect.right > width:
