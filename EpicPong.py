@@ -72,7 +72,7 @@ while True:
     for first in balls:
         player.collideBall(first)
         if first.collideBall(player):
-            first.die()
+            first.collidePaddle(player)
         else:
             for second in balls:
                 if first != second:
