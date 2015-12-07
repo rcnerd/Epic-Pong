@@ -70,17 +70,13 @@ while True:
         ball.update(size)
         
     for first in balls:
-        player.collideBall(first)
-        if first.collideBall(player):
-            first.collidePaddle(player)
-        elif first.collideBall(player2):
-            first.collidePaddle(player2)
-        else:
-            for second in balls:
-                if first != second:
-                    first.collideBall(second)
-                elif second != first:
-                    second.collideBall(first)
+        first.collidePaddle(player)
+        first.collidePaddle(player2)
+        for second in balls:
+            if first != second:
+                first.collideBall(second)
+            elif second != first:
+                second.collideBall(first)
     
     for ball in balls:
         if not ball.living:

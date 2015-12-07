@@ -72,7 +72,7 @@ class Ball():
     def collideBall(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-                if self.radius + other.radius > self.distanceTo(other.rect.center):
+                if self.radius + other.radius > self.distanceToPt(other.rect.center):
                     if not self.didBounceX:
                         if ((self.rect.center[0] < other.rect.center[0] and self.speedx > 0) or
                             (self.rect.center[0] > other.rect.center[0] and self.speedx < 0)):
@@ -91,25 +91,17 @@ class Ball():
     def collidePaddle(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-                if self.radius + other.radius > self.distanceTo(other.rect.center):
-                    if not self.didBounceX:
-                        if ((self.rect.center[0] < other.rect.center[0] and self.speedx > 0) or
-                            (self.rect.center[0] > other.rect.center[0] and self.speedx < 0)):
-                            self.speedx = -self.speedx
-                            self.didBounceX = True
-                            self.move()
-                    if not self.didBounceY:
-                        if ((self.rect.center[1] < other.rect.center[1] and self.speedy > 0) or
-                            (self.rect.center[1] > other.rect.center[1] and self.speedy < 0)):
-                            self.speedy = -self.speedy
-                            self.didBounceY = True
-                            self.move()
+                if self.rect.centery > other.rect.top and self.rect.centery < other.rect.bottom:
+                    self.speedx = -self.speedx
+                    self.move()
                     return True
         return False
         
-    def distanceTo(self, pt):
+    def distanceToPt(self, pt):
         x1 = self.rect.center[0]
         y1 = self.rect.center[1]
         x2 = pt[0]
         y2 = pt[1]
         return math.sqrt((x1-x2)**2+(y1-y2)**2)
+    
+    
