@@ -17,8 +17,8 @@ balls = []
 ballTimer = 0
 ballTimerMax = .1 * 60
 
-player = PlayerPaddle( ["pRainbow.png"], [10,10], [825, 600])
-player2 = PlayerPaddle( ["player2.png"], [10,10], [25,0])
+player = PlayerPaddle( ["pRainbow.png"], [10,10], [825, 300])
+player2 = PlayerPaddle( ["player2.png"], [10,10], [25,300])
 
 ball = Ball(["BlackBall.png"], [6,6], [300,400])
 
