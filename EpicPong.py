@@ -17,8 +17,8 @@ balls = []
 ballTimer = 0
 ballTimerMax = .1 * 60
 
-player = PlayerPaddle( ["Pics/player/pRainbow.png"], [10,10], [850, 600])
-player2 = PlayerPaddle( ["Pics/PLayer/player2.png"], [10,10], [0, 0])
+player = PlayerPaddle( ["Pics/player/player.png"], [10,10], [885, 300])
+player2 = PlayerPaddle( ["Pics/PLayer/player2.png"], [10,10], [5, 300])
 
 while True:
     for event in pygame.event.get():
