@@ -17,10 +17,8 @@ balls = []
 ballTimer = 0
 ballTimerMax = .1 * 60
 
-player = PlayerPaddle( ["pRainbow.png"], [10,10], [850, 600])
-player2 = PlayerPaddle( ["player2.png"], [10,10], [0, 0])
-
-ball = Ball(["BlackBall.png"], [6,6], [300,400])
+player = PlayerPaddle( ["Pics/player/pRainbow.png"], [10,10], [850, 600])
+player2 = PlayerPaddle( ["Pics/PLayer/player2.png"], [10,10], [0, 0])
 
 while True:
     for event in pygame.event.get():
@@ -55,10 +53,10 @@ while True:
         if len(balls) < 2:
             #ballSpeed = random.randint(-5, 5)
             #ballPos = random.randint(100, width-100)
-            balls += [Ball(["BlackBall.png",
-                            "BlackBall1.png",
-                            "BlackBall2.png",
-                            "BlackBall3.png"],
+            balls += [Ball(["Pics/Ball/BlackBall.png",
+                            "Pics/Ball/BlackBall1.png",
+                            "Pics/Ball/BlackBall2.png",
+                            "Pics/Ball/BlackBall3.png"],
                            [5,5],
                            [425, 350])]
             #print len(balls), clock.get_fps()
