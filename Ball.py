@@ -94,6 +94,7 @@ class Ball():
                 if self.rect.centery > other.rect.top and self.rect.centery < other.rect.bottom:
                     self.speedx = -self.speedx
                     self.move()
+                    self.die()
                     return True
         return False
         
