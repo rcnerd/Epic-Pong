@@ -44,7 +44,7 @@ class Ball():
             if self.rect.left < 0 or self.rect.right > width:
                 self.speedx = -self.speedx
                 self.didBounceX = True
-                self.move()
+                self.die()
         if not self.didBounceY:
             if self.rect.top < 0 or self.rect.bottom > height:
                 self.speedy = -self.speedy
@@ -94,7 +94,6 @@ class Ball():
                 if self.rect.centery > other.rect.top and self.rect.centery < other.rect.bottom:
                     self.speedx = -self.speedx
                     self.move()
-                    self.die()
                     return True
         return False
         
