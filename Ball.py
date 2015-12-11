@@ -91,10 +91,18 @@ class Ball():
     def collidePaddle(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-                if self.rect.centery > other.rect.top and self.rect.centery < other.rect.bottom:
+                if self.rect.centery > other.rect.top and self.rect.centery < other.rect.bottom: #front
                     self.speedx = -self.speedx
                     self.move()
                     return True
+                else:
+                    self.speedx = -self.speedx
+                    self.speedy = -self.speedy
+                    self.move()
+                    self.move()
+                    self.move()
+                    return True
+                
         return False
         
     def distanceToPt(self, pt):
