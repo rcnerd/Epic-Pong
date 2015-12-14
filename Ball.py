@@ -100,7 +100,6 @@ class Ball():
                     self.speedy = -self.speedy
                     self.move()
                     self.move()
-                    self.move()
                     return True
                 
         return False
