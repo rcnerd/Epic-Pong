@@ -1,5 +1,4 @@
 import sys, pygame, math 
-from ball import Ball
 
 class Score():
     def __init__(self, pos = [0,0]):
