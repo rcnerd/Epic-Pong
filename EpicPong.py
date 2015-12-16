@@ -1,6 +1,7 @@
 import sys, pygame, math, random
 from PlayerPaddle import *
 from Ball import *
+from Score import*
 pygame.init()
 
 clock = pygame.time.Clock()
@@ -20,6 +21,8 @@ ballTimerMax = .1 * 60
 player = PlayerPaddle( ["Pics/Player/player.png"], [10,10], [880, 300])
 player2 = PlayerPaddle( ["Pics/Player/player2.png"], [10,10], [10, 300])
 
+scoreP1 = Score([15,15])
+scoreP2 = Score([width - 15, height - 15])
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: 
@@ -70,6 +73,9 @@ while True:
     for first in balls:
         first.collidePaddle(player)
         first.collidePaddle(player2)
+        if first.collidePaddle:
+            scoreP1.increase(1)
+            scoreP2.increase(1)
         for second in balls:
             if first != second:
                 first.collideBall(second)
@@ -82,6 +88,8 @@ while True:
         
     bgColor = r,b,g
     screen.fill(bgColor)
+    screen.blit(scoreP1.image, scoreP1.rect)
+    screen.blit(scoreP2.image, scoreP2.rect)
     for ball in balls:
         screen.blit(ball.image, ball.rect)
     screen.blit(player.image, player.rect)
