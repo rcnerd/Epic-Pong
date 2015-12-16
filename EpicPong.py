@@ -60,7 +60,7 @@ while True:
                             "Pics/Ball/BlackBall1.png",
                             "Pics/Ball/BlackBall2.png",
                             "Pics/Ball/BlackBall3.png"],
-                           [9,9],
+                           [6,6],
                            [450, 350])]
             #print len(balls), clock.get_fps()
         
@@ -94,6 +94,7 @@ while True:
         screen.blit(ball.image, ball.rect)
     screen.blit(player.image, player.rect)
     screen.blit(player2.image, player2.rect)
+
     pygame.display.flip()
     clock.tick(60)
     #print clock.get_fps()
