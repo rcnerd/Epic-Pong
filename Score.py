@@ -1,4 +1,4 @@
-import sys, pygame, math 
+import sys, pygame, math
 
 class Score():
     def __init__(self, pos = [0,0]):
