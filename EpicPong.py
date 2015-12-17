@@ -21,8 +21,9 @@ ballTimerMax = .1 * 60
 player = PlayerPaddle( ["Pics/Player/player.png"], [10,10], [880, 300])
 player2 = PlayerPaddle( ["Pics/Player/player2.png"], [10,10], [10, 300])
 
-scoreP1 = Score([15,15])
-scoreP2 = Score([width - 15, height - 15])
+scoreP1 = Score([300, 350])
+scoreP2 = Score([600, 350])
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: 
