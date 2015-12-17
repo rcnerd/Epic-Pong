@@ -70,13 +70,12 @@ while True:
         
     for ball in balls:
         ball.update(size)
+        if ball.collideScreen:
+            scoreP1.increase[1]
         
     for first in balls:
         first.collidePaddle(player)
         first.collidePaddle(player2)
-        if first.collidePaddle:
-            scoreP1.increase(1)
-            scoreP2.increase(1)
         for second in balls:
             if first != second:
                 first.collideBall(second)
