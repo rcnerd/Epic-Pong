@@ -57,6 +57,7 @@ class Ball():
     def update(self, size):
         self.move()
         self.animate()
+        self.collideScreen(size)
         
     def animate(self):
         if self.timer < self.timerMax:
