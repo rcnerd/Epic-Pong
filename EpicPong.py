@@ -57,14 +57,14 @@ while True:
         if len(balls) < 1:
             ballSpeed = [0,0]
             while ballSpeed == [0,0]:
-                ballSpeed = [random.randint(-5, 5), random.randint(-5, 5)]
+            #ballSpeed = random.randint(-5, 5)
             #ballPos = random.randint(100, width-100)
             balls += [Ball(["Pics/Ball/BlackBall.png",
                             "Pics/Ball/BlackBall1.png",
                             "Pics/Ball/BlackBall2.png",
                             "Pics/Ball/BlackBall3.png"],
-                            ballSpeed,
-                           [435,338])]
+                           [6,6],
+                           [450, 350])]
             #print len(balls), clock.get_fps()
         
     player.update(size)
@@ -74,11 +74,8 @@ while True:
         
     for ball in balls:
         ball.update(size)
-        if ball.collideScreen(size) == "right":
-            scoreP1.increase(1)
-        elif ball.collideScreen(size) == "left":
-            scoreP2.increase(1)
-            
+        #ngif ball.collideScreen:
+            #scoreP1.decrease[1]
         
     for first in balls:
         first.collidePaddle(player)
