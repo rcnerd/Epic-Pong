@@ -74,8 +74,10 @@ while True:
         
     for ball in balls:
         ball.update(size)
-        #ngif ball.collideScreen:
-            #scoreP1.decrease[1]
+        if ball.collideScreen(size) == "right":
+            scoreP1.increase(1)
+        elif ball.collideScreen(size) == "left":
+            scoreP2.increase(1)
         
     for first in balls:
         first.collidePaddle(player)
