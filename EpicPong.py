@@ -57,13 +57,13 @@ while True:
         if len(balls) < 1:
             d = random.randint(1,5)
             if d == 1:
-                ballSpeed = [random.randint(7,8), random.randint(7,8)]
+                ballSpeed = [random.randint(7,9), random.randint(7,9)]
             elif d == 2:
-                ballSpeed = [random.randint(-8,-7), random.randint(7,8)]
+                ballSpeed = [random.randint(-9,-7), random.randint(7,9)]
             elif d == 3:
-                ballSpeed = [random.randint(-8,-7), random.randint(-8,-7)]
+                ballSpeed = [random.randint(-9,-7), random.randint(-9,-7)]
             elif d == 4:
-                ballSpeed = [random.randint(7,8), random.randint(-8,-7)]
+                ballSpeed = [random.randint(7,9), random.randint(-9,-7)]
             #ballPos = random.randint(100, width-100)
             balls += [Ball(["Pics/Ball/BlackBall.png",
                             "Pics/Ball/BlackBall1.png",
