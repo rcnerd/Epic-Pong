@@ -55,15 +55,15 @@ while True:
     if ballTimer >= ballTimerMax:
         ballTimer = 0
         if len(balls) < 1:
-            d = random.randint(1,4)
+            d = random.randint(1,5)
             if d == 1:
-                ballSpeed = [random.randint(5,7), random.randint(5,7)]
+                ballSpeed = [random.randint(6,8), random.randint(6,8)]
             elif d == 2:
-                ballSpeed = [random.randint(-7,-5), random.randint(5,7)]
+                ballSpeed = [random.randint(-8,-6), random.randint(6,8)]
             elif d == 3:
-                ballSpeed = [random.randint(-7,-5), random.randint(-7,-5)]
+                ballSpeed = [random.randint(-8,-6), random.randint(-8,-6)]
             elif d == 4:
-                ballSpeed = [random.randint(5,7), random.randint(-7,-5)]
+                ballSpeed = [random.randint(6,8), random.randint(-8,-6)]
             #ballPos = random.randint(100, width-100)
             balls += [Ball(["Pics/Ball/BlackBall.png",
                             "Pics/Ball/BlackBall1.png",
