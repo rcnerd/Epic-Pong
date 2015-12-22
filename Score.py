@@ -11,7 +11,6 @@ class Score():
         self.image = self.font.render(str(self.score), 1, (0, 0, 0))
         self.rect = self.image.get_rect(center = self.rect.center)
         
-    
     def increase(self, amount=0):
         self.score += amount
     
