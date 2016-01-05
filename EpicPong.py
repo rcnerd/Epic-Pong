@@ -21,8 +21,8 @@ ballTimerMax = 2 * 60
 player = PlayerPaddle( ["Pics/Player/player.png"], [10,10], [10, 300])
 player2 = PlayerPaddle( ["Pics/Player/player2.png"], [10,10], [880, 300])
 
-scoreP1 = Score([600, 350])
-scoreP2 = Score([300, 350])
+scoreP1 = Score([300, 350])
+scoreP2 = Score([600, 350])
 
 while True:
     while scoreP1.score < 10 and scoreP2.score < 10:
@@ -65,7 +65,6 @@ while True:
                     ballSpeed = [random.randint(-8,-7), random.randint(-8,-7)]
                 elif d == 4:
                     ballSpeed = [random.randint(7,8), random.randint(-8,-7)]
-                #ballPos = random.randint(100, width-100)
                 balls += [Ball(["Pics/Ball/BlackBall.png",
                                 "Pics/Ball/BlackBall1.png",
                                 "Pics/Ball/BlackBall2.png",
@@ -85,6 +84,8 @@ while True:
                 scoreP1.increase(1)
             elif ball.collideScreen(size) == "left":
                 scoreP2.increase(1)
+            #elif ballcollideScreen(size) == "left" or "right":
+                
             
         for first in balls:
             first.collidePaddle(player)
@@ -112,20 +113,26 @@ while True:
         clock.tick(60)
         #print clock.get_fps()
         
-    while scoreP1.score > 10 and scoreP2.score < 10:
+    while scoreP1.score >= 10 and scoreP2.score <= 10:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
+            if scoreP1.score == 10 and scoreP2.score < 10:
+                print "Player 1 wins"
+                
+        pygame.image.load("Pics/Player/player1wins.png")
         
         pygame.display.flip()
         clock.tick(60)
         
-    while scoreP2.score > 10 and scoreP1.score < 10:
+    while scoreP2.score >= 10 and scoreP1.score <= 10:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
-            
-            print "Player 1 Wins!!!"
+            if scoreP2.score == 10 and scoreP1.score < 10:
+                print "Player 2 wins"
         
+        pygame.image.load("Pics/Player/player2wins.png")
+                
         pygame.display.flip()
         clock.tick(60)
