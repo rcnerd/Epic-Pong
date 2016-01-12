@@ -21,11 +21,13 @@ ballTimerMax = 2 * 60
 player = PlayerPaddle( ["Pics/Player/player.png"], [10,10], [10, 300])
 player2 = PlayerPaddle( ["Pics/Player/player2.png"], [10,10], [880, 300])
 
-scoreP1 = Score([600, 350])
-scoreP2 = Score([300, 350])
+scoreP1 = Score([300, 350])
+scoreP2 = Score([600, 350])
+
+endScore = 3
 
 while True:
-    while scoreP1.score < 10 and scoreP2.score < 10:
+    while scoreP1.score < endScore and scoreP2.score < endScore:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
@@ -115,7 +117,7 @@ while True:
         
         
         
-    while scoreP1.score > 10 and scoreP2.score < 10:
+    while scoreP1.score >= endScore and scoreP2.score <= endScore:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
@@ -125,11 +127,12 @@ while True:
         bg = pygame.image.load("Pics/Player/player1wins.png")
         bgrect = bg.get_rect(center = [width/2,height/2])
         
-        
+        screen.fill(bgColor)
+        screen.blit(bg, bgrect)
         pygame.display.flip()
         clock.tick(60)
         
-    while scoreP2.score > 10 and scoreP1.score < 10:
+    while scoreP2.score >= endScore and scoreP1.score <= endScore:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
@@ -140,7 +143,10 @@ while True:
             
             print "Player 2 Wins!!!"
         
-        player2 = PlayerWinner(["Pics/Player/player2wins.png"], [300,300])
+        bg = pygame.image.load("Pics/Player/player2wins.png")
+        bgrect = bg.get_rect(center = [width/2,height/2])
         
+        screen.fill(bgColor)
+        screen.blit(bg, bgrect)
         pygame.display.flip()
         clock.tick(60)
