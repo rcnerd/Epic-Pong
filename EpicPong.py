@@ -136,12 +136,11 @@ while True:
         pygame.display.flip()
         clock.tick(60)
         
+        
     while scoreP2.score >= endScore and scoreP1.score <= endScore:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
-
-
             
             print "Player 2 Wins!!!"
         
