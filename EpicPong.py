@@ -25,6 +25,7 @@ scoreP1 = Score([300, 350])
 scoreP2 = Score([600, 350])
 
 endScore = 3
+lastScore = random.randint(1,2)
 
 while True:
     while scoreP1.score < endScore and scoreP2.score < endScore:
@@ -58,15 +59,18 @@ while True:
         if ballTimer >= ballTimerMax:
             ballTimer = 0
             if len(balls) < 1:
-                d = random.randint(1,4)
-                if d == 1:
-                    ballSpeed = [random.randint(7,8), random.randint(7,8)]
-                elif d == 2:
-                    ballSpeed = [random.randint(-8,-7), random.randint(7,8)]
-                elif d == 3:
-                    ballSpeed = [random.randint(-8,-7), random.randint(-8,-7)]
-                elif d == 4:
-                    ballSpeed = [random.randint(7,8), random.randint(-8,-7)]
+                print lastScore
+                d = random.randint(1,2)
+                if lastScore == 1:
+                    if d == 1:
+                        ballSpeed = [random.randint(-8,-7), random.randint(-8,-7)]
+                    else:
+                        ballSpeed = [random.randint(-8,-7), random.randint(7,8)]
+                else:
+                    if d == 1:
+                        ballSpeed = [random.randint(7,8), random.randint(-8,-7)]
+                    else:
+                        ballSpeed = [random.randint(7,8), random.randint(7,8)]
                 balls += [Ball(["Pics/Ball/BlackBall.png",
                                 "Pics/Ball/BlackBall1.png",
                                 "Pics/Ball/BlackBall2.png",
@@ -84,8 +88,10 @@ while True:
             ball.update(size)
             if ball.collideScreen(size) == "right":
                 scoreP1.increase(1)
+                lastScore = 1
             elif ball.collideScreen(size) == "left":
                 scoreP2.increase(1)
+                lastScore = 2
             #elif ballcollideScreen(size) == "left" or "right":
                 
             
@@ -121,8 +127,6 @@ while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
-            if scoreP1.score == endScore and scoreP2.score < endScore:
-                print "Player 1 wins"
                 
         bg = pygame.image.load("Pics/Player/player1wins.png")
         bgrect = bg.get_rect(center = [width/2,height/2])
@@ -137,8 +141,6 @@ while True:
             if event.type == pygame.QUIT: 
                 sys.exit()
 
-            if scoreP2.score == endScore and scoreP1.score < endScore:
-                print "Player 2 wins"
 
             
             print "Player 2 Wins!!!"
