@@ -25,7 +25,7 @@ scoreP1 = Score([300, 350])
 scoreP2 = Score([600, 350])
 
 endScore = 3
-lastScore = random.randint(1,2)
+beginingScore = 0
 
 while True:
     while scoreP1.score < endScore and scoreP2.score < endScore:
@@ -55,20 +55,24 @@ while True:
                 elif event.key == pygame.K_DOWN:
                     player2.go("stop down")
                     
+                elif event.key == pygame.K_KP_ENTER:
+                    scoreP1.score == beginingScore and scoreP2.score == beginingScore
+                    
         ballTimer += 1
         if ballTimer >= ballTimerMax:
             ballTimer = 0
             if len(balls) < 1:
                 print lastScore
-                d = random.randint(1,2)
+                d = random.randint(1,4)
                 if lastScore == 1:
-                    if d == 1:
-                        ballSpeed = [random.randint(-8,-7), random.randint(-8,-7)]
-                    else:
-                        ballSpeed = [random.randint(-8,-7), random.randint(7,8)]
-                else:
-                    if d == 1:
-                        ballSpeed = [random.randint(7,8), random.randint(-8,-7)]
+                if d == 1:
+                    ballSpeed = [random.randint(7,8), random.randint(7,8)]
+                elif d == 2:
+                    ballSpeed = [random.randint(-8,-7), random.randint(7,8)]
+                elif d == 3:
+                    ballSpeed = [random.randint(-8,-7), random.randint(-8,-7)]
+                elif d == 4:
+                    ballSpeed = [random.randint(7,8), random.randint(-8,-7)]
                     else:
                         ballSpeed = [random.randint(7,8), random.randint(7,8)]
                 balls += [Ball(["Pics/Ball/BlackBall.png",
@@ -138,6 +142,8 @@ while True:
         screen.blit(playAgain, playAgainRect)
         pygame.display.flip()
         clock.tick(60)
+        
+            
         
     while scoreP2.score >= endScore and scoreP1.score <= endScore:
         for event in pygame.event.get():
