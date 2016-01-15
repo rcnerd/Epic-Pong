@@ -127,12 +127,15 @@ while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
-                
+        
+        playAgain = pygame.image.load("Pics/Player/playagain.png")
+        playAgainRect = playAgain.get_rect(center = [width/2,3*height/4])
         bg = pygame.image.load("Pics/Player/player1wins.png")
-        bgrect = bg.get_rect(center = [width/2,height/2])
+        bgrect = bg.get_rect(center = [width/2,height/3])
         
         screen.fill(bgColor)
         screen.blit(bg, bgrect)
+        screen.blit(playAgain, playAgainRect)
         pygame.display.flip()
         clock.tick(60)
         
@@ -140,15 +143,15 @@ while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 sys.exit()
-
-
             
-            print "Player 2 Wins!!!"
-        
+
+        playAgain = pygame.image.load("Pics/Player/playagain.png")
+        playAgainRect = playAgain.get_rect(center = [width/2,3*height/4])
         bg = pygame.image.load("Pics/Player/player2wins.png")
-        bgrect = bg.get_rect(center = [width/2,height/2])
+        bgrect = bg.get_rect(center = [width/2,height/3])
         
         screen.fill(bgColor)
         screen.blit(bg, bgrect)
+        screen.blit(playAgain, playAgainRect)
         pygame.display.flip()
         clock.tick(60)
