@@ -56,11 +56,12 @@ while True:
                 elif event.key == pygame.K_DOWN:
                     player2.go("stop down")
                     
-        ballTimer += 1
-        if ballTimer >= ballTimerMax:
-            ballTimer = 0
-            if len(balls) < 1:
-                d = random.randint(1,2)
+        
+        if len(balls) < 1:
+            d = random.randint(1,2)
+            ballTimer += 1
+-           if ballTimer >= ballTimerMax:
+-               ballTimer = 0
                 if lastScore == 1:
                     if d == 1:
                         ballSpeed = [random.randint(-8,-7), random.randint(-8,-7)]
@@ -77,7 +78,7 @@ while True:
                                 "Pics/Ball/BlackBall3.png"],
                                 ballSpeed,
                                [435,338])]
-                    #print len(balls), clock.get_fps()
+                        #print len(balls), clock.get_fps()
             
         player.update(size)
         player2.update(size)
